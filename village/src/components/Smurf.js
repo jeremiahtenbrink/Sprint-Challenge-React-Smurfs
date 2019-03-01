@@ -1,19 +1,26 @@
-import React from 'react';
+import React from "react";
+import { Card, Button } from "semantic-ui-react";
 
-const Smurf = props => {
-  return (
-    <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
-    </div>
-  );
+const Smurf = ( { smurf, editSmurf, deleteSmurf } ) => {
+    return (
+        <Card className="Smurf">
+            <Card.Content>
+                <Card.Header>{ smurf.name }</Card.Header>
+                <strong>{ smurf.height } tall</strong>
+                <p>{ smurf.age } smurf years old</p>
+            </Card.Content>
+            <Card.Content extra>
+                <Button onClick={ () => editSmurf( smurf ) }>Edit</Button>
+                <Button onClick={ () => deleteSmurf( smurf.id ) }>Delete</Button>
+            </Card.Content>
+        </Card>
+    );
 };
 
 Smurf.defaultProps = {
-  name: '',
-  height: '',
-  age: ''
+    name: "",
+    height: "",
+    age: ""
 };
 
 export default Smurf;
