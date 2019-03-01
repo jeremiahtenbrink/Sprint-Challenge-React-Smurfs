@@ -13,6 +13,7 @@ class App extends Component {
         this.state = {
             smurfs: [],
             visible: true,
+            smurf: null,
             editSmurf: false
         };
     }
@@ -41,7 +42,7 @@ class App extends Component {
         axios.put( `http://localhost:3333/smurfs/${ smurf.id }`, smurf )
             .then( res => {
                 debugger;
-                this.setState( { smurfs: res.data } );
+                this.setState( { smurfs: res.data, smurf: null } );
             } )
             .catch( err => console.log( err ) );
         this.props.history.push( "/" );
@@ -108,7 +109,7 @@ class App extends Component {
                                 <Route
                                     path={ "/add" }
                                     render={ () => <SmurfForm
-                                        smurf={ this.state.editSmurf }
+                                        smurf={ null }
                                         formType={ "add" }
                                         addSmurf={ this.addSmurf } /> } />
                                 <Route

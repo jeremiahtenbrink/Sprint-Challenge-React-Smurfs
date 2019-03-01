@@ -6,8 +6,8 @@ const Smurf = ( { smurf, editSmurf, deleteSmurf } ) => {
         <Card className="Smurf">
             <Card.Content>
                 <Card.Header>{ smurf.name }</Card.Header>
-                <strong>{ smurf.height } tall</strong>
-                <p>{ smurf.age } smurf years old</p>
+                <strong>Height: { smurf.height } tall</strong>
+                <p>Age: { smurf.age } smurf years old</p>
             </Card.Content>
             <Card.Content extra>
                 <Button onClick={ () => editSmurf( smurf ) }>Edit</Button>
